@@ -1,11 +1,20 @@
 const body = document.body;
 const navToggle = document.querySelector('[data-nav-toggle]');
 const navLinks = document.querySelectorAll('.main-nav a');
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const normalizePath = (path) => {
+  if (!path) return '/';
+  const cleaned = path.replace(/\/+$/, '');
+  return cleaned === '' ? '/' : cleaned;
+};
+
+const currentPath = normalizePath(window.location.pathname);
 
 navLinks.forEach((link) => {
   const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+  if (!href || href.startsWith('#')) return;
+
+  const linkPath = normalizePath(new URL(href, window.location.origin).pathname);
+  if (linkPath === currentPath) {
     link.classList.add('active');
   }
   link.addEventListener('click', () => body.classList.remove('nav-open'));
