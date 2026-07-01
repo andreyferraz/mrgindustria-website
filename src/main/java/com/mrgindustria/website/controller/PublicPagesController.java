@@ -36,4 +36,9 @@ public class PublicPagesController {
         return "lubrificacao-industrial";
     }
 
+    @GetMapping("/servicos-realizados")
+    public String servicosRealizados() {
+        return "servicos-realizados";
+    }
+
 }

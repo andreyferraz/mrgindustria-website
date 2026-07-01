@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR"
+    th:replace="~{layout :: layout('Serviços Realizados | MRG Engenharia', ~{::content})}">
+<header>
+    <title th:text="${title}"></title>
+</header>
+<div th:fragment="content">
+
+    <section class="page-hero">
+        <div class="container page-hero-inner">
+            <div class="reveal">
+                <span class="eyebrow">Portfólio</span>
+                <h1>Serviços realizados em <span>sistemas hidráulicos</span> industriais.</h1>
+                <p>Alguns trabalhos executados pela MRG Engenharia demonstram nossa expertise em manutenção, montagem e
+                    reparo de sistemas hidráulicos, com foco em confiabilidade, segurança e performance operacional.</p>
+            </div>
+            <div class="page-hero-media reveal">
+                <img th:src="@{/img/servicos.png}" alt="Serviços realizados em sistemas hidráulicos industriais">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div>
+                    <span class="tagline">Trabalhos executados</span>
+                    <h2>Manutenção, montagem e reparo para continuidade operacional.</h2>
+                </div>
+                <p>A MRG Engenharia atua em intervenções técnicas voltadas à disponibilidade dos ativos, redução de
+                    paradas, recuperação de componentes e melhoria da confiabilidade dos sistemas industriais.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <article class="portfolio-card reveal">
+                    <img th:src="@{/img/projeto-01.svg}" alt="Serviço em unidade hidráulica industrial">
+                    <div class="portfolio-content">
+                        <span class="tagline">Sistema hidráulico</span>
+                        <h3>Manutenção de unidade hidráulica</h3>
+                        <p>Inspeção, manutenção e adequação de conjuntos hidráulicos para restabelecer desempenho,
+                            segurança e disponibilidade operacional.</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card reveal">
+                    <img th:src="@{/img/projeto-02.svg}" alt="Montagem e adequação de linhas hidráulicas">
+                    <div class="portfolio-content">
+                        <span class="tagline">Montagem técnica</span>
+                        <h3>Montagem de linhas e tubulações</h3>
+                        <p>Instalação e organização de tubulações, mangueiras e conexões hidráulicas para aplicações
+                            industriais e circuitos de alta demanda.</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card reveal">
+                    <img th:src="@{/img/projeto-03.svg}" alt="Reparo de cilindros hidráulicos">
+                    <div class="portfolio-content">
+                        <span class="tagline">Reparo hidráulico</span>
+                        <h3>Recuperação de cilindros hidráulicos</h3>
+                        <p>Serviços de desmontagem, avaliação, reparo e recuperação de cilindros hidráulicos para
+                            prolongar a vida útil dos equipamentos.</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card reveal">
+                    <img th:src="@{/img/projeto-04.svg}" alt="Atendimento em bloco e comandos hidráulicos">
+                    <div class="portfolio-content">
+                        <span class="tagline">Componentes hidráulicos</span>
+                        <h3>Reparo de blocos e comandos</h3>
+                        <p>Intervenções em blocos hidráulicos, válvulas, comandos e conexões para correção de falhas e
+                            melhoria da confiabilidade do circuito.</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card reveal">
+                    <img th:src="@{/img/projeto-05.svg}" alt="Suporte técnico em bombas e componentes hidráulicos">
+                    <div class="portfolio-content">
+                        <span class="tagline">Fornecimento técnico</span>
+                        <h3>Substituição e suporte em componentes</h3>
+                        <p>Aplicação de bombas, filtros, mangueiras, conexões, adaptadores, válvulas e demais
+                            componentes para sistemas hidráulicos industriais.</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card reveal">
+                    <img th:src="@{/img/projeto-06.svg}" alt="Suporte operacional em manutenção hidráulica">
+                    <div class="portfolio-content">
+                        <span class="tagline">Performance operacional</span>
+                        <h3>Suporte técnico em campo</h3>
+                        <p>Atendimento especializado para diagnóstico, manutenção e acompanhamento técnico, com foco em
+                            redução de downtime e continuidade da operação.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container two-col">
+            <div class="reveal">
+                <span class="tagline">Escopo técnico</span>
+                <h2>Serviços alinhados à necessidade de cada operação industrial.</h2>
+                <p>Os trabalhos executados envolvem manutenção preventiva, correção de falhas, montagem, reparo,
+                    substituição de componentes, adequação de circuitos e suporte técnico para sistemas hidráulicos.</p>
+                <p>Também atendemos demandas relacionadas a sistemas pneumáticos e lubrificação industrial, integrando
+                    engenharia, manutenção especializada, fornecimento técnico e atendimento consultivo.</p>
+            </div>
+
+            <div class="info-grid">
+                <article class="info-card highlight reveal">
+                    <div class="card-icon">01</div>
+                    <h3>Diagnóstico técnico</h3>
+                    <p>Análise da condição dos sistemas, identificação de falhas e definição da melhor solução para cada
+                        aplicação.</p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon red">02</div>
+                    <h3>Execução especializada</h3>
+                    <p>Manutenção, montagem e reparo com equipe técnica qualificada e processos voltados à segurança e
+                        confiabilidade.</p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon">03</div>
+                    <h3>Fornecimento de componentes</h3>
+                    <p>Suporte no fornecimento de componentes hidráulicos, pneumáticos e de lubrificação industrial para
+                        continuidade das operações.</p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon red">04</div>
+                    <h3>Resultado operacional</h3>
+                    <p>Foco na redução de paradas, aumento da vida útil dos ativos, maior eficiência produtiva e
+                        disponibilidade operacional.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container cta-band reveal">
+            <h2>Precisa de manutenção, montagem ou reparo industrial?</h2>
+            <p>Solicite atendimento técnico para sistemas hidráulicos, pneumáticos e lubrificação industrial. A MRG
+                Engenharia está preparada para apoiar sua operação com soluções sob medida.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" th:href="@{/contato}">Solicitar proposta</a>
+                <a class="btn btn-secondary" th:href="@{/sistemas-hidraulicos}">Conhecer sistemas hidráulicos</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</html>
