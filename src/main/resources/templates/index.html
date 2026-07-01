@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR" th:replace="~{layout :: layout('Início | MRG Engenharia', ~{::content})}">
+<header>
+    <title th:text="${title}"></title>
+</header>
+<div th:fragment="content">
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-copy reveal">
+                <span class="eyebrow">Engenharia • Manutenção • Fornecimento Técnico • Performance
+                    Operacional</span>
+                <h1>Soluções industriais que <span>movimentam</span> sua operação.</h1>
+                <p>A MRG Engenharia é especializada em manutenção industrial, fornecimento técnico e soluções
+                    aplicadas em sistemas hidráulicos, pneumáticos e de lubrificação industrial.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="contato.html">Solicitar proposta</a>
+                    <a class="btn btn-secondary" href="servicos-realizados.html">Ver serviços realizados</a>
+                </div>
+            </div>
+            <div class="hero-media reveal">
+                <div class="hero-card"><img th:src="@{/img/hero-industrial.png}"
+                        alt="Ambiente industrial com sistemas hidráulicos, pneumáticos e componentes técnicos">
+                </div>
+                <div class="floating-panel"><strong>Disponibilidade operacional</strong><small>Redução de downtime,
+                        suporte técnico, manutenção especializada e maior confiabilidade dos ativos.</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><span class="tagline">O que fazemos</span>
+                    <h2>Ecossistema completo para plantas industriais.</h2>
+                </div>
+                <p>Integramos suporte técnico, manutenção especializada, fornecimento de componentes industriais e
+                    atendimento consultivo para aumentar a segurança, a eficiência produtiva e a confiabilidade dos
+                    equipamentos.</p>
+            </div>
+            <div class="bento-grid">
+                <article class="bento-card dark tall reveal">
+                    <div class="card-icon">01</div>
+                    <h3>Manutenção especializada</h3>
+                    <p>Diagnóstico, manutenção preventiva e corretiva com equipe qualificada, processos padronizados e
+                        foco na redução de paradas operacionais.</p><img th:src="@{/img/manutencao-industrial.png}"
+                        alt="Técnico realizando manutenção industrial em equipamento hidráulico">
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon red">02</div>
+                    <h3>Sistemas hidráulicos</h3>
+                    <p>Manutenção preventiva, reforma de unidades hidráulicas, cilindros, blocos, acumuladores e
+                        instalação de tubulações e mangueiras hidráulicas.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">03</div>
+                    <h3>Sistemas pneumáticos</h3>
+                    <p>Fornecimento técnico de válvulas, cilindros, conexões, engates rápidos, unidades FRL,
+                        reguladores, filtros, secadores, tubos e painéis pneumáticos.</p>
+                </article>
+                <article class="bento-card wide reveal">
+                    <div class="card-icon">04</div>
+                    <h3>Lubrificação industrial e componentes</h3>
+                    <p>Montagem, manutenção, adequação e modernização de sistemas de lubrificação centralizada, com
+                        fornecimento de bombas, dosadores, tubulações, conexões, filtros e unidades completas.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container stats-strip reveal">
+            <div class="stat"><strong data-counter="4" data-suffix="">0</strong><span>frentes integradas</span></div>
+            <div class="stat"><strong data-counter="9" data-suffix="+">0</strong><span>segmentos atendidos</span></div>
+            <div class="stat"><strong data-counter="5" data-suffix="+">0</strong><span>marcas de referência</span></div>
+            <div class="stat"><strong data-counter="100" data-suffix="%">0</strong><span>componentes ZPMC
+                    originais</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><span class="tagline">Soluções em destaque</span>
+                    <h2>Atuação técnica para aumentar desempenho, segurança e disponibilidade.</h2>
+                </div><a class="btn btn-line" href="areas-atuacao.html">Conhecer áreas</a>
+            </div>
+            <div class="service-grid">
+                <article class="service-card reveal"><img th:src="@{/img/sistema-hidraulico.png}"
+                        alt="Componentes e sistema hidráulico industrial">
+                    <div class="service-content"><span class="tagline">Hidráulica</span>
+                        <h3>Reparo, montagem e modernização</h3>
+                        <p>Bombas, motores, válvulas direcionais e proporcionais, cilindros, filtros, conexões,
+                            adaptadores, mangueiras, unidades hidráulicas completas e acumuladores.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal"><img th:src="@{/img/sistema-pneumatico.png}"
+                        alt="Componentes e sistema pneumático industrial">
+                    <div class="service-content"><span class="tagline">Pneumática</span>
+                        <h3>Componentes e linhas de ar</h3>
+                        <p>Válvulas e cilindros pneumáticos, conexões e engates rápidos, unidades de preparação de ar,
+                            reguladores de pressão, filtros, secadores, tubos, mangueiras e painéis pneumáticos.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal"><img th:src="@{/img/lubrificacao-industrial.png}"
+                        alt="Sistema de lubrificação industrial centralizada">
+                    <div class="service-content"><span class="tagline">Lubrificação</span>
+                        <h3>Sistemas centralizados</h3>
+                        <p>Montagem e manutenção de sistemas de lubrificação centralizada, instalação de linhas, ajustes
+                            e calibração de dosadores, limpeza de circuitos e modernização de sistemas.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><span class="tagline">Áreas de atuação</span>
+                    <h2>Segmentos industriais atendidos pela MRG Engenharia.</h2>
+                </div>
+                <p>Atuação com excelência em manutenção, fornecimento técnico e soluções industriais para diferentes
+                    segmentos, com foco em eficiência, segurança operacional e maior desempenho dos equipamentos e
+                    processos.</p>
+            </div>
+            <div class="bento-grid">
+                <article class="bento-card reveal">
+                    <div class="card-icon">01</div>
+                    <h3>Indústrias petroquímicas</h3>
+                    <p>Suporte técnico especializado para operações críticas e ambientes severos.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">02</div>
+                    <h3>Fundição</h3>
+                    <p>Soluções robustas para sistemas hidráulicos e pneumáticos de alta demanda.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">03</div>
+                    <h3>Extrusão</h3>
+                    <p>Manutenção e fornecimento técnico para máxima produtividade e eficiência.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">04</div>
+                    <h3>Offshore</h3>
+                    <p>Atendimento técnico confiável para operações em ambientes desafiadores.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">05</div>
+                    <h3>Metalurgia</h3>
+                    <p>Sistemas de lubrificação e hidráulicos para processos contínuos e seguros.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">06</div>
+                    <h3>Mineração</h3>
+                    <p>Equipamentos e serviços para alta performance e redução de paradas.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">07</div>
+                    <h3>Papel e celulose</h3>
+                    <p>Soluções técnicas que garantem disponibilidade e confiabilidade operacional.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">08</div>
+                    <h3>Indústrias de processos</h3>
+                    <p>Atuação integrada para otimização, segurança e eficiência dos processos.</p>
+                </article>
+                <article class="bento-card wide reveal">
+                    <div class="card-icon">09</div>
+                    <h3>Operações industriais em geral</h3>
+                    <p>Atendimento flexível e personalizado para diferentes demandas industriais.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><span class="tagline">Pilares</span>
+                    <h2>Compromisso diário com desempenho, segurança e confiança.</h2>
+                </div>
+                <p>Nossos pilares orientam cada projeto, cada serviço e cada relacionamento com os clientes.</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-card reveal">
+                    <div class="service-content"><span class="tagline">Missão</span>
+                        <h3>Soluções eficientes e seguras</h3>
+                        <p>Oferecer soluções eficientes e seguras em manutenção hidráulica e pneumática, garantindo o
+                            melhor desempenho dos equipamentos dos clientes.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal">
+                    <div class="service-content"><span class="tagline">Qualidade</span>
+                        <h3>Excelência e melhoria contínua</h3>
+                        <p>Atuação com padrões rigorosos de qualidade, profissionais qualificados, equipamentos
+                            adequados e compromisso com a excelência dos serviços prestados.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal">
+                    <div class="service-content"><span class="tagline">Inovação</span>
+                        <h3>Tecnologia e soluções inteligentes</h3>
+                        <p>Adoção de tecnologias e práticas modernas para melhorar continuamente processos, produtos e
+                            resultados industriais.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><span class="tagline">Marcas e fornecimento</span>
+                    <h2>Atendemos ou fornecemos as principais marcas do mercado.</h2>
+                </div>
+                <p>Atuação com componentes e soluções para marcas hidráulicas e pneumáticas de referência, incluindo
+                    Parker, Rexroth, Danfoss, Eaton e Festo.</p>
+            </div>
+            <div class="bento-grid">
+                <article class="bento-card reveal">
+                    <div class="card-icon">P</div>
+                    <h3>Parker</h3>
+                    <p>Componentes hidráulicos e pneumáticos para aplicações industriais.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">R</div>
+                    <h3>Rexroth</h3>
+                    <p>Soluções e componentes Bosch Rexroth para sistemas industriais.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">D</div>
+                    <h3>Danfoss</h3>
+                    <p>Componentes técnicos para desempenho, controle e eficiência operacional.</p>
+                </article>
+                <article class="bento-card reveal">
+                    <div class="card-icon">E</div>
+                    <h3>Eaton</h3>
+                    <p>Produtos e soluções para aplicações hidráulicas e industriais.</p>
+                </article>
+                <article class="bento-card wide reveal">
+                    <div class="card-icon">F</div>
+                    <h3>Festo</h3>
+                    <p>Componentes pneumáticos e soluções para automação e linhas de ar comprimido.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div><span class="tagline">Componentes ZPMC</span>
+                    <h2>Soluções de alta performance para equipamentos portuários.</h2>
+                </div>
+                <p>A MRG fornece componentes originais ZPMC com qualidade, confiabilidade e suporte técnico
+                    especializado para guindastes portuários, shiploaders, transtainers e demais equipamentos de
+                    movimentação de carga.</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-card reveal">
+                    <div class="service-content"><span class="tagline">Freios hidráulicos</span>
+                        <h3>Séries YLZ / YWZ / SE / SH</h3>
+                        <p>Componentes ZPMC 100% originais, projetados para durabilidade, confiabilidade e alta
+                            performance em operações contínuas.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal">
+                    <div class="service-content"><span class="tagline">Lubrificação centralizada</span>
+                        <h3>Séries VT / ED / DB</h3>
+                        <p>Sistemas e componentes para aplicação em equipamentos portuários e sistemas de movimentação
+                            de carga.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal">
+                    <div class="service-content"><span class="tagline">Acionamentos e redutores</span>
+                        <h3>Séries PAD / PWD</h3>
+                        <p>Fornecimento técnico com assistência especializada em todas as etapas, entrega ágil e estoque
+                            estratégico.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container cta-band reveal">
+            <h2>Tecnologia, experiência e compromisso para movimentar sua indústria.</h2>
+            <p>Estamos à disposição para contribuir com o sucesso do seu projeto e construir uma parceria sólida, com
+                atendimento consultivo, qualidade, agilidade e suporte técnico especializado.</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="contato.html">Falar com especialista</a><a
+                    class="btn btn-secondary" href="quem-somos.html">Conhecer a MRG</a></div>
+        </div>
+    </section>
+</div>
+
+</html>
