@@ -9,18 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.mrgindustria.website.model.Areas;
 import com.mrgindustria.website.model.Marcas;
+import com.mrgindustria.website.model.Servicos;
 import com.mrgindustria.website.service.AreasService;
 import com.mrgindustria.website.service.MarcasService;
+import com.mrgindustria.website.service.ServicosService;
 
 @Controller
 public class PublicPagesController {
 
     private final AreasService areasService;
     private final MarcasService marcasService;
+    private final ServicosService servicosService;
 
-    public PublicPagesController(AreasService areasService, MarcasService marcasService) {
+    public PublicPagesController(AreasService areasService, MarcasService marcasService, ServicosService servicosService) {
         this.areasService = areasService;
         this.marcasService = marcasService;
+        this.servicosService = servicosService;
     }
 
     @GetMapping("/")
@@ -60,7 +64,9 @@ public class PublicPagesController {
     }
 
     @GetMapping("/servicos-realizados")
-    public String servicosRealizados() {
+    public String servicosRealizados(Model model) {
+        List<Servicos> servicos = StreamSupport.stream(servicosService.findAll().spliterator(), false).toList();
+        model.addAttribute("servicos", servicos);
         return "servicos-realizados";
     }
 

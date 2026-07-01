@@ -32,63 +32,22 @@
             </div>
 
             <div class="portfolio-grid">
-                <article class="portfolio-card reveal">
-                    <img th:src="@{/img/projeto-01.svg}" alt="Serviço em unidade hidráulica industrial">
+                <article class="portfolio-card reveal" th:if="${#lists.isEmpty(servicos)}">
+                    <img th:src="@{/img/projeto-01.svg}" alt="Nenhum serviço cadastrado">
                     <div class="portfolio-content">
-                        <span class="tagline">Sistema hidráulico</span>
-                        <h3>Manutenção de unidade hidráulica</h3>
-                        <p>Inspeção, manutenção e adequação de conjuntos hidráulicos para restabelecer desempenho,
-                            segurança e disponibilidade operacional.</p>
+                        <span class="tagline">Portfólio</span>
+                        <h3>Nenhum serviço cadastrado</h3>
+                        <p>Cadastre serviços no painel administrativo para exibir aqui os trabalhos realizados.</p>
                     </div>
                 </article>
 
-                <article class="portfolio-card reveal">
-                    <img th:src="@{/img/projeto-02.svg}" alt="Montagem e adequação de linhas hidráulicas">
+                <article class="portfolio-card reveal" th:each="servico : ${servicos}">
+                    <img th:if="${servico.imagem != null and !#strings.isEmpty(servico.imagem)}" th:src="|/uploads/${servico.imagem}|" th:alt="${servico.titulo}">
+                    <img th:if="${servico.imagem == null or #strings.isEmpty(servico.imagem)}" th:src="@{/img/projeto-01.svg}" th:alt="${servico.titulo}">
                     <div class="portfolio-content">
-                        <span class="tagline">Montagem técnica</span>
-                        <h3>Montagem de linhas e tubulações</h3>
-                        <p>Instalação e organização de tubulações, mangueiras e conexões hidráulicas para aplicações
-                            industriais e circuitos de alta demanda.</p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal">
-                    <img th:src="@{/img/projeto-03.svg}" alt="Reparo de cilindros hidráulicos">
-                    <div class="portfolio-content">
-                        <span class="tagline">Reparo hidráulico</span>
-                        <h3>Recuperação de cilindros hidráulicos</h3>
-                        <p>Serviços de desmontagem, avaliação, reparo e recuperação de cilindros hidráulicos para
-                            prolongar a vida útil dos equipamentos.</p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal">
-                    <img th:src="@{/img/projeto-04.svg}" alt="Atendimento em bloco e comandos hidráulicos">
-                    <div class="portfolio-content">
-                        <span class="tagline">Componentes hidráulicos</span>
-                        <h3>Reparo de blocos e comandos</h3>
-                        <p>Intervenções em blocos hidráulicos, válvulas, comandos e conexões para correção de falhas e
-                            melhoria da confiabilidade do circuito.</p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal">
-                    <img th:src="@{/img/projeto-05.svg}" alt="Suporte técnico em bombas e componentes hidráulicos">
-                    <div class="portfolio-content">
-                        <span class="tagline">Fornecimento técnico</span>
-                        <h3>Substituição e suporte em componentes</h3>
-                        <p>Aplicação de bombas, filtros, mangueiras, conexões, adaptadores, válvulas e demais
-                            componentes para sistemas hidráulicos industriais.</p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card reveal">
-                    <img th:src="@{/img/projeto-06.svg}" alt="Suporte operacional em manutenção hidráulica">
-                    <div class="portfolio-content">
-                        <span class="tagline">Performance operacional</span>
-                        <h3>Suporte técnico em campo</h3>
-                        <p>Atendimento especializado para diagnóstico, manutenção e acompanhamento técnico, com foco em
-                            redução de downtime e continuidade da operação.</p>
+                        <span class="tagline" th:text="${servico.categoria}">Categoria</span>
+                        <h3 th:text="${servico.titulo}">Título do serviço</h3>
+                        <p th:text="${servico.descricao}">Descrição do serviço</p>
                     </div>
                 </article>
             </div>
