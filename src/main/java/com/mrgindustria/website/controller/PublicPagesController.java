@@ -16,4 +16,9 @@ public class PublicPagesController {
         return "quem-somos";
     }
 
+    @GetMapping("/areas-atuacao")
+    public String areasAtuacao() {
+        return "areas-atuacao";
+    }
+
 }

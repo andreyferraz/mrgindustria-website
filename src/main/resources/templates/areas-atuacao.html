@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR"
+    th:replace="~{layout :: layout('Áreas de Atuação | MRG Engenharia', ~{::content})}">
+<header>
+    <title th:text="${title}"></title>
+</header>
+<div th:fragment="content">
+    <section class="page-hero">
+        <div class="container page-hero-inner">
+            <div class="reveal">
+                <span class="eyebrow">Áreas de atuação</span>
+                <h1>Do diagnóstico à <span>performance</span> operacional.</h1>
+                <p>Atuamos com excelência em manutenção, fornecimento técnico e soluções industriais para diversos
+                    segmentos, garantindo eficiência, segurança operacional e maior desempenho dos equipamentos e
+                    processos.</p>
+            </div>
+            <div class="page-hero-media reveal">
+                <img th:src="@{/img/segmentos-industriais.png}"
+                    alt="Técnico em ambiente industrial atuando em equipamentos e sistemas industriais">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head reveal">
+                <div>
+                    <span class="tagline">Segmentos atendidos</span>
+                    <h2>Estrutura técnica preparada para diferentes operações industriais.</h2>
+                </div>
+                <p>A MRG Engenharia atende segmentos com demandas críticas de disponibilidade, confiabilidade, segurança
+                    e alta performance operacional.</p>
+            </div>
+
+            <div class="segment-grid">
+                <div class="segment-card reveal">
+                    <strong>Indústrias petroquímicas</strong>
+                    <span>Suporte técnico especializado para operações críticas e ambientes severos.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Fundição</strong>
+                    <span>Soluções robustas para sistemas hidráulicos e pneumáticos de alta demanda.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Extrusão</strong>
+                    <span>Manutenção e fornecimento técnico para máxima produtividade e eficiência.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Offshore</strong>
+                    <span>Atendimento técnico confiável para operações em ambientes desafiadores.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Metalurgia</strong>
+                    <span>Sistemas de lubrificação e hidráulicos para processos contínuos e seguros.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Mineração</strong>
+                    <span>Equipamentos e serviços para alta performance e redução de paradas.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Papel e celulose</strong>
+                    <span>Soluções técnicas que garantem disponibilidade e confiabilidade operacional.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Indústrias de processos</strong>
+                    <span>Atuação integrada para otimização, segurança e eficiência dos processos.</span>
+                </div>
+
+                <div class="segment-card reveal">
+                    <strong>Operações industriais em geral</strong>
+                    <span>Atendimento flexível e personalizado para diferentes demandas industriais.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container two-col">
+            <div class="reveal">
+                <span class="tagline">Diferenciais de atuação</span>
+                <h2>Tecnologia, experiência e compromisso para movimentar sua indústria.</h2>
+                <p>A atuação da MRG Engenharia combina diagnóstico preciso, equipe técnica qualificada, soluções sob
+                    medida e foco em resultados operacionais.</p>
+                <p>O objetivo é apoiar cada cliente com segurança, confiabilidade, redução de paradas, aumento da vida
+                    útil dos ativos e maior eficiência operacional.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <h3>Experiência comprovada</h3>
+                    <p>Equipe técnica qualificada e com ampla experiência em diversos segmentos industriais.</p>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <h3>Soluções personalizadas</h3>
+                    <p>Diagnóstico preciso e soluções sob medida para cada aplicação, necessidade e contexto
+                        operacional.</p>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <h3>Foco em resultados</h3>
+                    <p>Redução de paradas, aumento da vida útil dos equipamentos e maior eficiência operacional.</p>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <h3>Parceiro estratégico</h3>
+                    <p>Compromisso com a segurança, a confiabilidade e o sucesso dos nossos clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container cta-band reveal">
+            <h2>Soluções industriais para diferentes segmentos e regiões.</h2>
+            <p>Conte com atendimento consultivo, manutenção especializada, fornecimento técnico e soluções
+                personalizadas para aumentar a disponibilidade e a performance da sua operação.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" th:href="@{/contato}">Solicitar proposta</a>
+                <a class="btn btn-secondary" th:href="@{/servicos-realizados}">Ver serviços realizados</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+</html>
