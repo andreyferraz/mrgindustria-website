@@ -76,3 +76,34 @@ forms.forEach((form) => {
 
 const year = document.querySelector('[data-current-year]');
 if (year) year.textContent = new Date().getFullYear();
+
+const adminTabsRoot = document.querySelector('[data-admin-tabs]');
+if (adminTabsRoot) {
+  const tabLinks = adminTabsRoot.querySelectorAll('[data-admin-tab-target]');
+  const tabPanels = adminTabsRoot.querySelectorAll('[data-admin-tab-panel]');
+
+  const activateTab = (tabName) => {
+    tabLinks.forEach((tab) => {
+      const isActive = tab.dataset.adminTabTarget === tabName;
+      tab.classList.toggle('active', isActive);
+    });
+
+    tabPanels.forEach((panel) => {
+      const isActive = panel.dataset.adminTabPanel === tabName;
+      panel.classList.toggle('active', isActive);
+    });
+  };
+
+  const validTabs = Array.from(tabLinks).map((tab) => tab.dataset.adminTabTarget);
+  const tabFromHash = window.location.hash.replace('#', '');
+  const initialTab = validTabs.includes(tabFromHash) ? tabFromHash : 'senha';
+  activateTab(initialTab);
+
+  tabLinks.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const tabName = tab.dataset.adminTabTarget;
+      activateTab(tabName);
+      window.history.replaceState(null, '', `#${tabName}`);
+    });
+  });
+}

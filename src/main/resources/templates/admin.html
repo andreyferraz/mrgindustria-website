@@ -24,165 +24,175 @@
             <div class="admin-alert success" th:if="${success}" th:text="${success}"></div>
             <div class="admin-alert error" th:if="${error}" th:text="${error}"></div>
 
-            <div class="admin-card reveal">
-                <div class="admin-card-head">
-                    <h2>Alterar senha do administrador</h2>
-                    <form th:action="@{/logout}" method="post">
+            <div class="admin-layout reveal" data-admin-tabs>
+                <aside class="admin-sidebar">
+                    <h2>Menu</h2>
+                    <button class="admin-tab-link active" type="button" data-admin-tab-target="senha">Senha</button>
+                    <button class="admin-tab-link" type="button" data-admin-tab-target="areas">Áreas</button>
+                    <button class="admin-tab-link" type="button" data-admin-tab-target="marcas">Marcas</button>
+                    <button class="admin-tab-link" type="button" data-admin-tab-target="servicos">Serviços</button>
+                    <form class="admin-logout" th:action="@{/logout}" method="post">
                         <button type="submit" class="btn btn-line">Sair</button>
                     </form>
-                </div>
-                <form class="admin-form" th:action="@{/admin/password}" method="post">
-                    <div class="field">
-                        <label for="currentPassword">Senha atual</label>
-                        <input id="currentPassword" name="currentPassword" type="password" required>
-                    </div>
-                    <div class="field">
-                        <label for="newPassword">Nova senha</label>
-                        <input id="newPassword" name="newPassword" type="password" required>
-                    </div>
-                    <div class="field">
-                        <label for="confirmPassword">Confirmar nova senha</label>
-                        <input id="confirmPassword" name="confirmPassword" type="password" required>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Atualizar senha</button>
-                </form>
-            </div>
+                </aside>
 
-            <div class="admin-card reveal">
-                <h2>Áreas</h2>
-                <form class="admin-form admin-form-grid" th:action="@{/admin/areas}" method="post">
-                    <div class="field">
-                        <label for="areaTitulo">Título</label>
-                        <input id="areaTitulo" name="titulo" type="text" required>
-                    </div>
-                    <div class="field full">
-                        <label for="areaDescricao">Descrição</label>
-                        <textarea id="areaDescricao" name="descricao" required></textarea>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Cadastrar área</button>
-                </form>
-
-                <div class="admin-list">
-                    <article class="admin-item" th:each="area : ${areas}">
-                        <form class="admin-form admin-form-grid" th:action="@{'/admin/areas/' + ${area.id}}" method="post">
+                <div class="admin-content">
+                    <div class="admin-card admin-tab-panel active" data-admin-tab-panel="senha">
+                        <h2>Alterar senha do administrador</h2>
+                        <form class="admin-form" th:action="@{/admin/password}" method="post">
                             <div class="field">
-                                <label for="area-titulo-edit">Título</label>
-                                <input id="area-titulo-edit" name="titulo" type="text" th:value="${area.titulo}" required>
+                                <label for="currentPassword">Senha atual</label>
+                                <input id="currentPassword" name="currentPassword" type="password" required>
+                            </div>
+                            <div class="field">
+                                <label for="newPassword">Nova senha</label>
+                                <input id="newPassword" name="newPassword" type="password" required>
+                            </div>
+                            <div class="field">
+                                <label for="confirmPassword">Confirmar nova senha</label>
+                                <input id="confirmPassword" name="confirmPassword" type="password" required>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Atualizar senha</button>
+                        </form>
+                    </div>
+
+                    <div class="admin-card admin-tab-panel" data-admin-tab-panel="areas">
+                        <h2>Áreas</h2>
+                        <form class="admin-form admin-form-grid" th:action="@{/admin/areas}" method="post">
+                            <div class="field">
+                                <label for="areaTitulo">Título</label>
+                                <input id="areaTitulo" name="titulo" type="text" required>
                             </div>
                             <div class="field full">
-                                <label for="area-descricao-edit">Descrição</label>
-                                <textarea id="area-descricao-edit" name="descricao" required th:text="${area.descricao}"></textarea>
+                                <label for="areaDescricao">Descrição</label>
+                                <textarea id="areaDescricao" name="descricao" required></textarea>
                             </div>
-                            <div class="admin-actions">
-                                <button class="btn btn-dark" type="submit">Salvar alterações</button>
-                            </div>
+                            <button class="btn btn-primary" type="submit">Cadastrar área</button>
                         </form>
-                        <form th:action="@{'/admin/areas/' + ${area.id} + '/delete'}" method="post">
-                            <button class="btn btn-line" type="submit">Excluir</button>
-                        </form>
-                    </article>
-                </div>
-            </div>
 
-            <div class="admin-card reveal">
-                <h2>Marcas</h2>
-                <form class="admin-form admin-form-grid" th:action="@{/admin/marcas}" method="post" enctype="multipart/form-data">
-                    <div class="field">
-                        <label for="marcaTitulo">Título</label>
-                        <input id="marcaTitulo" name="titulo" type="text" required>
-                    </div>
-                    <div class="field full">
-                        <label for="marcaDescricao">Descrição</label>
-                        <textarea id="marcaDescricao" name="descricao" required></textarea>
-                    </div>
-                    <div class="field full">
-                        <label for="marcaImagem">Imagem</label>
-                        <input id="marcaImagem" name="imagemFile" type="file" accept="image/*" required>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Cadastrar marca</button>
-                </form>
-
-                <div class="admin-list">
-                    <article class="admin-item" th:each="marca : ${marcas}">
-                        <div class="admin-image-wrap" th:if="${marca.imagem}">
-                            <img th:src="@{'/uploads/' + ${marca.imagem}}" th:alt="${marca.titulo}">
+                        <div class="admin-list">
+                            <article class="admin-item" th:each="area : ${areas}">
+                                <form class="admin-form admin-form-grid" th:action="@{'/admin/areas/' + ${area.id}}" method="post">
+                                    <div class="field">
+                                        <label for="area-titulo-edit">Título</label>
+                                        <input id="area-titulo-edit" name="titulo" type="text" th:value="${area.titulo}" required>
+                                    </div>
+                                    <div class="field full">
+                                        <label for="area-descricao-edit">Descrição</label>
+                                        <textarea id="area-descricao-edit" name="descricao" required th:text="${area.descricao}"></textarea>
+                                    </div>
+                                    <div class="admin-actions">
+                                        <button class="btn btn-dark" type="submit">Salvar alterações</button>
+                                    </div>
+                                </form>
+                                <form th:action="@{'/admin/areas/' + ${area.id} + '/delete'}" method="post">
+                                    <button class="btn btn-line" type="submit">Excluir</button>
+                                </form>
+                            </article>
                         </div>
-                        <form class="admin-form admin-form-grid" th:action="@{'/admin/marcas/' + ${marca.id}}" method="post" enctype="multipart/form-data">
+                    </div>
+
+                    <div class="admin-card admin-tab-panel" data-admin-tab-panel="marcas">
+                        <h2>Marcas</h2>
+                        <form class="admin-form admin-form-grid" th:action="@{/admin/marcas}" method="post" enctype="multipart/form-data">
                             <div class="field">
-                                <label for="marca-titulo-edit">Título</label>
-                                <input id="marca-titulo-edit" name="titulo" type="text" th:value="${marca.titulo}" required>
+                                <label for="marcaTitulo">Título</label>
+                                <input id="marcaTitulo" name="titulo" type="text" required>
                             </div>
                             <div class="field full">
-                                <label for="marca-descricao-edit">Descrição</label>
-                                <textarea id="marca-descricao-edit" name="descricao" required th:text="${marca.descricao}"></textarea>
+                                <label for="marcaDescricao">Descrição</label>
+                                <textarea id="marcaDescricao" name="descricao" required></textarea>
                             </div>
                             <div class="field full">
-                                <label for="marca-imagem-edit">Nova imagem (opcional)</label>
-                                <input id="marca-imagem-edit" name="imagemFile" type="file" accept="image/*">
+                                <label for="marcaImagem">Imagem</label>
+                                <input id="marcaImagem" name="imagemFile" type="file" accept="image/*" required>
                             </div>
-                            <div class="admin-actions">
-                                <button class="btn btn-dark" type="submit">Salvar alterações</button>
-                            </div>
+                            <button class="btn btn-primary" type="submit">Cadastrar marca</button>
                         </form>
-                        <form th:action="@{'/admin/marcas/' + ${marca.id} + '/delete'}" method="post">
-                            <button class="btn btn-line" type="submit">Excluir</button>
-                        </form>
-                    </article>
-                </div>
-            </div>
 
-            <div class="admin-card reveal">
-                <h2>Serviços</h2>
-                <form class="admin-form admin-form-grid" th:action="@{/admin/servicos}" method="post" enctype="multipart/form-data">
-                    <div class="field">
-                        <label for="servicoTitulo">Título</label>
-                        <input id="servicoTitulo" name="titulo" type="text" required>
-                    </div>
-                    <div class="field">
-                        <label for="servicoCategoria">Categoria</label>
-                        <input id="servicoCategoria" name="categoria" type="text" required>
-                    </div>
-                    <div class="field full">
-                        <label for="servicoDescricao">Descrição</label>
-                        <textarea id="servicoDescricao" name="descricao" required></textarea>
-                    </div>
-                    <div class="field full">
-                        <label for="servicoImagem">Imagem</label>
-                        <input id="servicoImagem" name="imagemFile" type="file" accept="image/*" required>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Cadastrar serviço</button>
-                </form>
-
-                <div class="admin-list">
-                    <article class="admin-item" th:each="servico : ${servicos}">
-                        <div class="admin-image-wrap" th:if="${servico.imagem}">
-                            <img th:src="@{'/uploads/' + ${servico.imagem}}" th:alt="${servico.titulo}">
+                        <div class="admin-list">
+                            <article class="admin-item" th:each="marca : ${marcas}">
+                                <div class="admin-image-wrap" th:if="${marca.imagem}">
+                                    <img th:src="@{'/uploads/' + ${marca.imagem}}" th:alt="${marca.titulo}">
+                                </div>
+                                <form class="admin-form admin-form-grid" th:action="@{'/admin/marcas/' + ${marca.id}}" method="post" enctype="multipart/form-data">
+                                    <div class="field">
+                                        <label for="marca-titulo-edit">Título</label>
+                                        <input id="marca-titulo-edit" name="titulo" type="text" th:value="${marca.titulo}" required>
+                                    </div>
+                                    <div class="field full">
+                                        <label for="marca-descricao-edit">Descrição</label>
+                                        <textarea id="marca-descricao-edit" name="descricao" required th:text="${marca.descricao}"></textarea>
+                                    </div>
+                                    <div class="field full">
+                                        <label for="marca-imagem-edit">Nova imagem (opcional)</label>
+                                        <input id="marca-imagem-edit" name="imagemFile" type="file" accept="image/*">
+                                    </div>
+                                    <div class="admin-actions">
+                                        <button class="btn btn-dark" type="submit">Salvar alterações</button>
+                                    </div>
+                                </form>
+                                <form th:action="@{'/admin/marcas/' + ${marca.id} + '/delete'}" method="post">
+                                    <button class="btn btn-line" type="submit">Excluir</button>
+                                </form>
+                            </article>
                         </div>
-                        <form class="admin-form admin-form-grid" th:action="@{'/admin/servicos/' + ${servico.id}}" method="post" enctype="multipart/form-data">
+                    </div>
+
+                    <div class="admin-card admin-tab-panel" data-admin-tab-panel="servicos">
+                        <h2>Serviços</h2>
+                        <form class="admin-form admin-form-grid" th:action="@{/admin/servicos}" method="post" enctype="multipart/form-data">
                             <div class="field">
-                                <label for="servico-titulo-edit">Título</label>
-                                <input id="servico-titulo-edit" name="titulo" type="text" th:value="${servico.titulo}" required>
+                                <label for="servicoTitulo">Título</label>
+                                <input id="servicoTitulo" name="titulo" type="text" required>
                             </div>
                             <div class="field">
-                                <label for="servico-categoria-edit">Categoria</label>
-                                <input id="servico-categoria-edit" name="categoria" type="text" th:value="${servico.categoria}" required>
+                                <label for="servicoCategoria">Categoria</label>
+                                <input id="servicoCategoria" name="categoria" type="text" required>
                             </div>
                             <div class="field full">
-                                <label for="servico-descricao-edit">Descrição</label>
-                                <textarea id="servico-descricao-edit" name="descricao" required th:text="${servico.descricao}"></textarea>
+                                <label for="servicoDescricao">Descrição</label>
+                                <textarea id="servicoDescricao" name="descricao" required></textarea>
                             </div>
                             <div class="field full">
-                                <label for="servico-imagem-edit">Nova imagem (opcional)</label>
-                                <input id="servico-imagem-edit" name="imagemFile" type="file" accept="image/*">
+                                <label for="servicoImagem">Imagem</label>
+                                <input id="servicoImagem" name="imagemFile" type="file" accept="image/*" required>
                             </div>
-                            <div class="admin-actions">
-                                <button class="btn btn-dark" type="submit">Salvar alterações</button>
-                            </div>
+                            <button class="btn btn-primary" type="submit">Cadastrar serviço</button>
                         </form>
-                        <form th:action="@{'/admin/servicos/' + ${servico.id} + '/delete'}" method="post">
-                            <button class="btn btn-line" type="submit">Excluir</button>
-                        </form>
-                    </article>
+
+                        <div class="admin-list">
+                            <article class="admin-item" th:each="servico : ${servicos}">
+                                <div class="admin-image-wrap" th:if="${servico.imagem}">
+                                    <img th:src="@{'/uploads/' + ${servico.imagem}}" th:alt="${servico.titulo}">
+                                </div>
+                                <form class="admin-form admin-form-grid" th:action="@{'/admin/servicos/' + ${servico.id}}" method="post" enctype="multipart/form-data">
+                                    <div class="field">
+                                        <label for="servico-titulo-edit">Título</label>
+                                        <input id="servico-titulo-edit" name="titulo" type="text" th:value="${servico.titulo}" required>
+                                    </div>
+                                    <div class="field">
+                                        <label for="servico-categoria-edit">Categoria</label>
+                                        <input id="servico-categoria-edit" name="categoria" type="text" th:value="${servico.categoria}" required>
+                                    </div>
+                                    <div class="field full">
+                                        <label for="servico-descricao-edit">Descrição</label>
+                                        <textarea id="servico-descricao-edit" name="descricao" required th:text="${servico.descricao}"></textarea>
+                                    </div>
+                                    <div class="field full">
+                                        <label for="servico-imagem-edit">Nova imagem (opcional)</label>
+                                        <input id="servico-imagem-edit" name="imagemFile" type="file" accept="image/*">
+                                    </div>
+                                    <div class="admin-actions">
+                                        <button class="btn btn-dark" type="submit">Salvar alterações</button>
+                                    </div>
+                                </form>
+                                <form th:action="@{'/admin/servicos/' + ${servico.id} + '/delete'}" method="post">
+                                    <button class="btn btn-line" type="submit">Excluir</button>
+                                </form>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -561,6 +561,54 @@ input:focus, textarea:focus, select:focus { border-color: var(--mrg-cyan); box-s
   display: grid;
   gap: 20px;
 }
+.admin-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.admin-sidebar {
+  position: sticky;
+  top: 108px;
+  padding: 18px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--mrg-shadow-soft);
+  display: grid;
+  gap: 10px;
+}
+.admin-sidebar h2 {
+  margin: 0 0 8px;
+  color: var(--mrg-bg);
+  font-size: 1.2rem;
+}
+.admin-tab-link {
+  text-align: left;
+  border: 1px solid rgba(0,51,111,.14);
+  background: #f7fbff;
+  color: var(--mrg-bg);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.admin-tab-link.active {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--mrg-navy), var(--mrg-blue));
+}
+.admin-logout {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,51,111,.12);
+}
+.admin-content {
+  display: grid;
+}
+.admin-tab-panel { display: none; }
+.admin-tab-panel.active { display: block; }
 .admin-alert {
   padding: 14px 16px;
   border-radius: 14px;
@@ -691,6 +739,13 @@ input:focus, textarea:focus, select:focus { border-color: var(--mrg-cyan); box-s
   .service-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .segment-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .admin-layout { grid-template-columns: 1fr; }
+  .admin-sidebar {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .admin-sidebar h2,
+  .admin-logout { grid-column: 1 / -1; }
 }
 @media (max-width: 820px) {
   .header-inner { height: 78px; }
@@ -720,6 +775,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--mrg-cyan); box-s
   .section-head { align-items: start; flex-direction: column; }
   .bento-grid, .service-grid, .portfolio-grid, .info-grid, .stats-strip, .form-grid { grid-template-columns: 1fr; }
   .admin-form-grid { grid-template-columns: 1fr; }
+  .admin-sidebar { grid-template-columns: 1fr; }
   .bento-card.wide, .bento-card.tall { grid-column: auto; grid-row: auto; }
   .bento-card img { position: relative; width: 100%; margin-top: 20px; }
   .hero-media { min-height: 360px; }
