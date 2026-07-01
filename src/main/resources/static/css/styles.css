@@ -666,6 +666,24 @@ input:focus, textarea:focus, select:focus { border-color: var(--mrg-cyan); box-s
   display: grid;
   gap: 12px;
 }
+.admin-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.admin-item-title {
+  color: var(--mrg-bg);
+  font-size: 1.03rem;
+}
+.admin-item-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.admin-item-controls form { margin: 0; }
+.admin-edit-form { display: none; }
+.admin-edit-form.open { display: grid; }
 .admin-actions {
   grid-column: 1 / -1;
   display: flex;
@@ -775,6 +793,10 @@ input:focus, textarea:focus, select:focus { border-color: var(--mrg-cyan); box-s
   .section-head { align-items: start; flex-direction: column; }
   .bento-grid, .service-grid, .portfolio-grid, .info-grid, .stats-strip, .form-grid { grid-template-columns: 1fr; }
   .admin-form-grid { grid-template-columns: 1fr; }
+  .admin-item-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
   .admin-sidebar { grid-template-columns: 1fr; }
   .bento-card.wide, .bento-card.tall { grid-column: auto; grid-row: auto; }
   .bento-card img { position: relative; width: 100%; margin-top: 20px; }

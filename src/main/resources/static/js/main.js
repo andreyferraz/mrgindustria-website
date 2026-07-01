@@ -79,6 +79,7 @@ if (year) year.textContent = new Date().getFullYear();
 
 const adminTabsRoot = document.querySelector('[data-admin-tabs]');
 if (adminTabsRoot) {
+  const ADMIN_TAB_STORAGE_KEY = 'adminActiveTab';
   const tabLinks = adminTabsRoot.querySelectorAll('[data-admin-tab-target]');
   const tabPanels = adminTabsRoot.querySelectorAll('[data-admin-tab-panel]');
 
@@ -96,14 +97,54 @@ if (adminTabsRoot) {
 
   const validTabs = Array.from(tabLinks).map((tab) => tab.dataset.adminTabTarget);
   const tabFromHash = window.location.hash.replace('#', '');
-  const initialTab = validTabs.includes(tabFromHash) ? tabFromHash : 'senha';
+  const tabFromStorage = window.localStorage.getItem(ADMIN_TAB_STORAGE_KEY);
+  const initialTab = validTabs.includes(tabFromHash)
+    ? tabFromHash
+    : (validTabs.includes(tabFromStorage) ? tabFromStorage : 'senha');
   activateTab(initialTab);
+  window.localStorage.setItem(ADMIN_TAB_STORAGE_KEY, initialTab);
 
   tabLinks.forEach((tab) => {
     tab.addEventListener('click', () => {
       const tabName = tab.dataset.adminTabTarget;
       activateTab(tabName);
       window.history.replaceState(null, '', `#${tabName}`);
+      window.localStorage.setItem(ADMIN_TAB_STORAGE_KEY, tabName);
+    });
+  });
+
+  const adminForms = adminTabsRoot.querySelectorAll('form');
+  adminForms.forEach((form) => {
+    form.addEventListener('submit', () => {
+      const activeTab = adminTabsRoot.querySelector('[data-admin-tab-target].active')?.dataset.adminTabTarget;
+      if (activeTab) {
+        window.localStorage.setItem(ADMIN_TAB_STORAGE_KEY, activeTab);
+      }
+    });
+  });
+
+  const editButtons = adminTabsRoot.querySelectorAll('[data-edit-target]');
+  editButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.editTarget;
+      const form = adminTabsRoot.querySelector(`[data-edit-form="${target}"]`);
+      if (!form) return;
+
+      const isOpen = form.classList.contains('open');
+      const currentPanel = button.closest('[data-admin-tab-panel]');
+      if (currentPanel) {
+        currentPanel.querySelectorAll('.admin-edit-form.open').forEach((openedForm) => {
+          openedForm.classList.remove('open');
+        });
+        currentPanel.querySelectorAll('[data-edit-target]').forEach((panelButton) => {
+          panelButton.textContent = 'Editar';
+        });
+      }
+
+      if (!isOpen) {
+        form.classList.add('open');
+        button.textContent = 'Fechar edição';
+      }
     });
   });
 }

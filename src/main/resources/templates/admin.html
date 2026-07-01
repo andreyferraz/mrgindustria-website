@@ -72,7 +72,16 @@
 
                         <div class="admin-list">
                             <article class="admin-item" th:each="area : ${areas}">
-                                <form class="admin-form admin-form-grid" th:action="@{'/admin/areas/' + ${area.id}}" method="post">
+                                <div class="admin-item-header">
+                                    <strong class="admin-item-title" th:text="${area.titulo}">Título da área</strong>
+                                    <div class="admin-item-controls">
+                                        <button class="btn btn-dark admin-edit-toggle" type="button" th:attr="data-edit-target=|area-${area.id}|">Editar</button>
+                                        <form th:action="@{'/admin/areas/' + ${area.id} + '/delete'}" method="post">
+                                            <button class="btn btn-line" type="submit">Excluir</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <form class="admin-form admin-form-grid admin-edit-form" th:action="@{'/admin/areas/' + ${area.id}}" method="post" th:attr="data-edit-form=|area-${area.id}|">
                                     <div class="field">
                                         <label for="area-titulo-edit">Título</label>
                                         <input id="area-titulo-edit" name="titulo" type="text" th:value="${area.titulo}" required>
@@ -84,9 +93,6 @@
                                     <div class="admin-actions">
                                         <button class="btn btn-dark" type="submit">Salvar alterações</button>
                                     </div>
-                                </form>
-                                <form th:action="@{'/admin/areas/' + ${area.id} + '/delete'}" method="post">
-                                    <button class="btn btn-line" type="submit">Excluir</button>
                                 </form>
                             </article>
                         </div>
@@ -112,10 +118,19 @@
 
                         <div class="admin-list">
                             <article class="admin-item" th:each="marca : ${marcas}">
-                                <div class="admin-image-wrap" th:if="${marca.imagem}">
-                                    <img th:src="@{'/uploads/' + ${marca.imagem}}" th:alt="${marca.titulo}">
+                                <div class="admin-item-header">
+                                    <strong class="admin-item-title" th:text="${marca.titulo}">Título da marca</strong>
+                                    <div class="admin-item-controls">
+                                        <button class="btn btn-dark admin-edit-toggle" type="button" th:attr="data-edit-target=|marca-${marca.id}|">Editar</button>
+                                        <form th:action="@{'/admin/marcas/' + ${marca.id} + '/delete'}" method="post">
+                                            <button class="btn btn-line" type="submit">Excluir</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <form class="admin-form admin-form-grid" th:action="@{'/admin/marcas/' + ${marca.id}}" method="post" enctype="multipart/form-data">
+                                <form class="admin-form admin-form-grid admin-edit-form" th:action="@{'/admin/marcas/' + ${marca.id}}" method="post" enctype="multipart/form-data" th:attr="data-edit-form=|marca-${marca.id}|">
+                                    <div class="admin-image-wrap" th:if="${marca.imagem}">
+                                        <img th:src="@{'/uploads/' + ${marca.imagem}}" th:alt="${marca.titulo}">
+                                    </div>
                                     <div class="field">
                                         <label for="marca-titulo-edit">Título</label>
                                         <input id="marca-titulo-edit" name="titulo" type="text" th:value="${marca.titulo}" required>
@@ -131,9 +146,6 @@
                                     <div class="admin-actions">
                                         <button class="btn btn-dark" type="submit">Salvar alterações</button>
                                     </div>
-                                </form>
-                                <form th:action="@{'/admin/marcas/' + ${marca.id} + '/delete'}" method="post">
-                                    <button class="btn btn-line" type="submit">Excluir</button>
                                 </form>
                             </article>
                         </div>
@@ -163,10 +175,19 @@
 
                         <div class="admin-list">
                             <article class="admin-item" th:each="servico : ${servicos}">
-                                <div class="admin-image-wrap" th:if="${servico.imagem}">
-                                    <img th:src="@{'/uploads/' + ${servico.imagem}}" th:alt="${servico.titulo}">
+                                <div class="admin-item-header">
+                                    <strong class="admin-item-title" th:text="${servico.titulo}">Título do serviço</strong>
+                                    <div class="admin-item-controls">
+                                        <button class="btn btn-dark admin-edit-toggle" type="button" th:attr="data-edit-target=|servico-${servico.id}|">Editar</button>
+                                        <form th:action="@{'/admin/servicos/' + ${servico.id} + '/delete'}" method="post">
+                                            <button class="btn btn-line" type="submit">Excluir</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <form class="admin-form admin-form-grid" th:action="@{'/admin/servicos/' + ${servico.id}}" method="post" enctype="multipart/form-data">
+                                <form class="admin-form admin-form-grid admin-edit-form" th:action="@{'/admin/servicos/' + ${servico.id}}" method="post" enctype="multipart/form-data" th:attr="data-edit-form=|servico-${servico.id}|">
+                                    <div class="admin-image-wrap" th:if="${servico.imagem}">
+                                        <img th:src="@{'/uploads/' + ${servico.imagem}}" th:alt="${servico.titulo}">
+                                    </div>
                                     <div class="field">
                                         <label for="servico-titulo-edit">Título</label>
                                         <input id="servico-titulo-edit" name="titulo" type="text" th:value="${servico.titulo}" required>
@@ -186,9 +207,6 @@
                                     <div class="admin-actions">
                                         <button class="btn btn-dark" type="submit">Salvar alterações</button>
                                     </div>
-                                </form>
-                                <form th:action="@{'/admin/servicos/' + ${servico.id} + '/delete'}" method="post">
-                                    <button class="btn btn-line" type="submit">Excluir</button>
                                 </form>
                             </article>
                         </div>
