@@ -25,6 +25,9 @@ public class Servicos implements Persistable<UUID> {
     @Column("titulo")
     private String titulo;
 
+    @Column("categoria")
+    private String categoria;
+
     @Column("descricao")
     private String descricao;
 

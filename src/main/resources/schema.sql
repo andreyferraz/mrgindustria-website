@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS areas (
 CREATE TABLE IF NOT EXISTS servicos (
     id TEXT PRIMARY KEY,
     titulo TEXT NOT NULL,
+    categoria TEXT NOT NULL,
     descricao TEXT NOT NULL,
     imagem TEXT NOT NULL
 );
