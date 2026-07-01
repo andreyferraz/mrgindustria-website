@@ -365,7 +365,7 @@ section { padding: 86px 0; }
   text-transform: uppercase;
 }
 .check-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
-.check-list li { position: relative; padding-left: 30px; color: #526276; line-height: 1.55; }
+.check-list li { position: relative; padding-left: 30px; color: white; line-height: 1.55; }
 .check-list li::before {
   content: "✓";
   position: absolute;
@@ -480,22 +480,54 @@ section { padding: 86px 0; }
   grid-template-columns: .85fr 1.15fr;
   gap: 24px;
 }
-.contact-card { height: fit-content; }
-.contact-list { display: grid; gap: 16px; margin: 24px 0 0; }
-.contact-line {
-  display: flex;
-  gap: 14px;
-  padding: 16px;
-  border-radius: 22px;
-  background: var(--mrg-soft);
+.contact-card {
+  height: fit-content;
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
 }
-.contact-line span { color: #526276; }
+.contact-card h2 {
+  margin: 10px 0 14px;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+}
+.contact-list { display: grid; gap: 14px; margin: 24px 0 0; }
+.contact-line {
+  display: grid;
+  gap: 6px;
+  padding: 18px 18px 18px 20px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(0,51,111,.10);
+  box-shadow: 0 10px 24px rgba(0,21,50,.05);
+  border-left: 5px solid var(--mrg-cyan);
+}
+.contact-line strong { color: var(--mrg-bg); font-size: 1.02rem; }
+.contact-line span { color: #526276; line-height: 1.6; }
+.contact-line a { color: var(--mrg-blue); font-weight: 700; }
+.contact-line a:hover { color: var(--mrg-red); }
 .form-card {
-  padding: 30px;
+  padding: 32px;
   border-radius: 38px;
   background: #fff;
   box-shadow: var(--mrg-shadow-soft);
 }
+.form-card .btn-primary {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 56px;
+  font-size: 1rem;
+}
+.form-card .form-message {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  color: var(--mrg-navy);
+  background: rgba(0,166,214,.10);
+  border: 1px solid rgba(0,166,214,.22);
+}
+.form-card .form-message:empty { display: none; }
 .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .field { display: grid; gap: 8px; }
 .field.full { grid-column: 1 / -1; }

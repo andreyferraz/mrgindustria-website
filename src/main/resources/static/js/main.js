@@ -66,11 +66,35 @@ const forms = document.querySelectorAll('[data-demo-form]');
 forms.forEach((form) => {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    const nome = form.querySelector('#nome')?.value.trim() || 'Não informado';
+    const empresa = form.querySelector('#empresa')?.value.trim() || 'Não informada';
+    const email = form.querySelector('#email')?.value.trim() || 'Não informado';
+    const telefone = form.querySelector('#telefone')?.value.trim() || 'Não informado';
+    const solucao = form.querySelector('#solucao')?.value.trim() || 'Não informada';
+    const mensagem = form.querySelector('#mensagem')?.value.trim() || 'Sem mensagem';
+
+    const whatsappMessage = [
+      'Olá, gostaria de solicitar atendimento técnico.',
+      '',
+      `Nome: ${nome}`,
+      `Empresa: ${empresa}`,
+      `E-mail: ${email}`,
+      `Telefone: ${telefone}`,
+      `Solução de interesse: ${solucao}`,
+      '',
+      'Mensagem:',
+      mensagem,
+    ].join('\n');
+
+    const whatsappNumber = '5527998348818';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
     const message = form.querySelector('.form-message');
     if (message) {
-      message.textContent = 'Mensagem simulada enviada. Integre este formulário ao backend ou ao WhatsApp oficial da empresa.';
+      message.textContent = 'Abrindo o WhatsApp com sua solicitação formatada.';
     }
-    form.reset();
   });
 });
 
