@@ -41,4 +41,9 @@ public class PublicPagesController {
         return "servicos-realizados";
     }
 
+    @GetMapping("/contato")
+    public String contato() {
+        return "contato";
+    }
+
 }

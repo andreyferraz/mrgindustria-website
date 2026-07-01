@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR"
+    th:replace="~{layout :: layout('Contato | MRG Engenharia', ~{::content})}">
+<header>
+    <title th:text="${title}"></title>
+</header>
+<div th:fragment="content">
+
+    <section class="page-hero">
+        <div class="container page-hero-inner">
+            <div class="reveal">
+                <span class="eyebrow">Contato</span>
+                <h1>Solicite uma <span>proposta técnica</span>.</h1>
+                <p>Estamos à disposição para contribuir com o sucesso da sua operação e construir uma parceria sólida em
+                    engenharia, manutenção, fornecimento técnico e performance operacional.</p>
+            </div>
+            <div class="page-hero-media reveal">
+                <img th:src="@{/img/contato.png}" alt="Contato técnico para soluções industriais da MRG Engenharia">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container contact-layout">
+            <aside class="contact-card reveal">
+                <span class="tagline">Canais oficiais</span>
+                <h2>Fale com a MRG Engenharia.</h2>
+                <p>Entre em contato para solicitar diagnóstico, orçamento, suporte técnico, manutenção especializada ou
+                    fornecimento de componentes industriais.</p>
+
+                <div class="contact-list">
+                    <div class="contact-line">
+                        <strong>Maéliton Barbosa</strong>
+                        <span>Gestor de Serviços e Manutenções</span>
+                        <a href="tel:+5527998348818">(27) 99834-8818</a>
+                        <a href="mailto:mrgengenharia2025@gmail.com">mrgengenharia2025@gmail.com</a>
+                    </div>
+
+                    <div class="contact-line">
+                        <strong>Júlio César José de Castro</strong>
+                        <span>Gestor de Consultoria e Comércio</span>
+                        <a href="tel:+5527995258735">(27) 99525-8735</a>
+                        <a href="mailto:juliocastromrg@gmail.com">juliocastromrg@gmail.com</a>
+                    </div>
+
+                    <div class="contact-line">
+                        <strong>Atendimento</strong>
+                        <span>Suporte técnico, manutenção especializada, atendimento consultivo e fornecimento técnico
+                            para operações industriais.</span>
+                    </div>
+                </div>
+            </aside>
+
+            <form class="form-card reveal" data-demo-form>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="nome">Nome</label>
+                        <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="empresa">Empresa</label>
+                        <input id="empresa" name="empresa" type="text" placeholder="Nome da empresa">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" placeholder="email@empresa.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="telefone">Telefone</label>
+                        <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="field full">
+                        <label for="solucao">Solução de interesse</label>
+                        <select id="solucao" name="solucao">
+                            <option>Sistemas hidráulicos</option>
+                            <option>Sistemas pneumáticos</option>
+                            <option>Lubrificação industrial</option>
+                            <option>Manutenção especializada</option>
+                            <option>Fornecimento técnico</option>
+                            <option>Engenharia aplicada</option>
+                            <option>Performance operacional</option>
+                            <option>Componentes ZPMC</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem"
+                            placeholder="Descreva a necessidade técnica da sua operação, equipamento, sistema ou componente desejado."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Enviar solicitação</button>
+                <div class="form-message" aria-live="polite"></div>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="container cta-band reveal">
+            <h2>Soluções que movimentam a sua indústria.</h2>
+            <p>Conte com a MRG Engenharia para suporte técnico, manutenção especializada, fornecimento de componentes
+                industriais e soluções consultivas em sistemas hidráulicos, pneumáticos e lubrificação industrial.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="mailto:mrgengenharia2025@gmail.com">Enviar e-mail</a>
+                <a class="btn btn-secondary" href="tel:+5527998348818">Ligar agora</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</html>
