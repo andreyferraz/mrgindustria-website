@@ -31,4 +31,9 @@ public class PublicPagesController {
         return "sistemas-pneumaticos";
     }
 
+    @GetMapping("/lubrificacao-industrial")
+    public String lubrificacaoIndustrial() {
+        return "lubrificacao-industrial";
+    }
+
 }
