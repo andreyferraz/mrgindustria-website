@@ -10,3 +10,9 @@ CREATE TABLE IF NOT EXISTS marcas (
     titulo TEXT NOT NULL,
     descricao TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS areas (
+    id TEXT PRIMARY KEY,
+    titulo TEXT NOT NULL,
+    descricao TEXT NOT NULL
+);
