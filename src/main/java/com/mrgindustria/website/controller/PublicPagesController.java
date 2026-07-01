@@ -26,4 +26,9 @@ public class PublicPagesController {
         return "sistemas-hidraulicos";
     }
 
+    @GetMapping("/sistemas-pneumaticos")
+    public String sistemasPneumaticos() {
+        return "sistemas-pneumaticos";
+    }
+
 }
