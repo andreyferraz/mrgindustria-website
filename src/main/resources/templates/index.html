@@ -13,8 +13,8 @@
                 <p>A MRG Engenharia é especializada em manutenção industrial, fornecimento técnico e soluções
                     aplicadas em sistemas hidráulicos, pneumáticos e de lubrificação industrial.</p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="contato.html">Solicitar proposta</a>
-                    <a class="btn btn-secondary" href="servicos-realizados.html">Ver serviços realizados</a>
+                    <a class="btn btn-primary" th:href="@{/contato}">Solicitar proposta</a>
+                    <a class="btn btn-secondary" th:href="@{/servicos-realizados}">Ver serviços realizados</a>
                 </div>
             </div>
             <div class="hero-media reveal">
@@ -82,7 +82,7 @@
             <div class="section-head reveal">
                 <div><span class="tagline">Soluções em destaque</span>
                     <h2>Atuação técnica para aumentar desempenho, segurança e disponibilidade.</h2>
-                </div><a class="btn btn-line" href="areas-atuacao.html">Conhecer áreas</a>
+                </div><a class="btn btn-line" th:href="@{/areas-atuacao}">Conhecer áreas</a>
             </div>
             <div class="service-grid">
                 <article class="service-card reveal"><img th:src="@{/img/sistema-hidraulico.png}"
@@ -240,8 +240,8 @@
             <h2>Tecnologia, experiência e compromisso para movimentar sua indústria.</h2>
             <p>Estamos à disposição para contribuir com o sucesso do seu projeto e construir uma parceria sólida, com
                 atendimento consultivo, qualidade, agilidade e suporte técnico especializado.</p>
-            <div class="hero-actions"><a class="btn btn-primary" href="contato.html">Falar com especialista</a><a
-                    class="btn btn-secondary" href="quem-somos.html">Conhecer a MRG</a></div>
+            <div class="hero-actions"><a class="btn btn-primary" th:href="@{/contato}">Falar com especialista</a><a
+                    class="btn btn-secondary" th:href="@{/quem-somos}">Conhecer a MRG</a></div>
         </div>
     </section>
 </div>
