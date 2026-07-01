@@ -46,4 +46,9 @@ public class PublicPagesController {
         return "contato";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
 }

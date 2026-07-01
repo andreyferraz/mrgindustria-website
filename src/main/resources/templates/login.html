@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR"
+    th:replace="~{layout :: layout('Login | MRG Engenharia', ~{::content})}">
+<header>
+    <title th:text="${title}"></title>
+</header>
+<div th:fragment="content">
+
+    <section>
+        <div class="container login-layout">
+            <aside class="login-info reveal">
+                <span class="tagline">Acesso seguro</span>
+                <h2>Gestão interna com autenticação.</h2>
+                <p>Use seu usuário e senha cadastrados para acessar a área administrativa com segurança e rastreabilidade.</p>
+                <ul class="check-list">
+                    <li>Login protegido pelo Spring Security.</li>
+                    <li>Credenciais exclusivas para administradores.</li>
+                    <li>Sessão com logout controlado no painel.</li>
+                </ul>
+            </aside>
+
+            <form class="login-form-card reveal" th:action="@{/login}" method="post">
+                <div class="login-logo-wrap">
+                    <img th:src="@{/img/mrg-logo-white.webp}" alt="Logo da MRG Engenharia">
+                </div>
+
+                <div class="login-feedback error" th:if="${param.error}">
+                    Usuário ou senha inválidos. Tente novamente.
+                </div>
+                <div class="login-feedback success" th:if="${param.logout}">
+                    Sessão encerrada com sucesso.
+                </div>
+
+                <div class="field">
+                    <label for="username">Usuário</label>
+                    <input id="username" name="username" type="text" autocomplete="username" required>
+                </div>
+
+                <div class="field field-spaced">
+                    <label for="password">Senha</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required>
+                </div>
+
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+                <button class="btn btn-primary login-submit" type="submit">
+                    Entrar no painel
+                </button>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+</html>
