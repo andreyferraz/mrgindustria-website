@@ -11,4 +11,9 @@ public class PublicPagesController {
         return "index";
     }
 
+    @GetMapping("/quem-somos")
+    public String quemSomos() {
+        return "quem-somos";
+    }
+
 }

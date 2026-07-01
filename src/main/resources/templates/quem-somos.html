@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR" th:replace="~{layout :: layout('Quem Somos | MRG Engenharia', ~{::content})}">
+<header>
+    <title th:text="${title}"></title>
+</header>
+<div th:fragment="content">
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="reveal">
+      <span class="eyebrow">Quem somos</span>
+      <h1>Engenharia aplicada à <span>confiabilidade</span> industrial.</h1>
+      <p>A MRG Engenharia é especializada em manutenção industrial, fornecimento técnico e soluções aplicadas em sistemas hidráulicos, pneumáticos e de lubrificação industrial.</p>
+    </div>
+    <div class="page-hero-media reveal">
+      <img th:src="@{/img/manutencao-industrial.png}" alt="Técnico em ambiente industrial atuando em manutenção de sistemas hidráulicos">
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="tagline">Posicionamento</span>
+      <h2>Soluções com foco em desempenho, segurança e suporte técnico.</h2>
+      <p>Nosso modelo de atuação integra suporte técnico, manutenção especializada, fornecimento de componentes industriais e atendimento consultivo para operações industriais.</p>
+      <p>Atuamos para aumentar a disponibilidade operacional, reduzir downtime, agilizar o atendimento técnico, elevar a eficiência produtiva e fortalecer a segurança e a confiabilidade dos equipamentos industriais.</p>
+    </div>
+
+    <div class="info-grid">
+      <article class="info-card highlight reveal">
+        <div class="card-icon">M</div>
+        <h3>Missão</h3>
+        <p>Oferecer soluções eficientes e seguras em manutenção hidráulica e pneumática, garantindo o melhor desempenho dos equipamentos de nossos clientes.</p>
+      </article>
+
+      <article class="info-card reveal">
+        <div class="card-icon red">Q</div>
+        <h3>Qualidade</h3>
+        <p>Buscar excelência com padrões rigorosos de qualidade em todas as etapas do projeto, contando com profissionais qualificados, equipamentos adequados e compromisso com os serviços prestados.</p>
+      </article>
+
+      <article class="info-card reveal">
+        <div class="card-icon">I</div>
+        <h3>Inovação</h3>
+        <p>Adotar tecnologias e soluções inteligentes para melhorar continuamente processos, produtos e resultados nas operações industriais atendidas.</p>
+      </article>
+
+      <article class="info-card reveal">
+        <div class="card-icon red">C</div>
+        <h3>Confiança</h3>
+        <p>Construir relacionamentos sólidos por meio de atendimento consultivo, qualidade, agilidade, responsividade e foco real na necessidade de cada cliente.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="tagline">Foco de atuação</span>
+        <h2>O que orienta cada projeto, serviço e relacionamento.</h2>
+      </div>
+      <p>Mais que valores, nossos pilares representam o compromisso diário em entregar soluções industriais que geram desempenho, segurança e confiança para a operação.</p>
+    </div>
+
+    <div class="bento-grid">
+      <article class="bento-card reveal">
+        <div class="card-icon">01</div>
+        <h3>Disponibilidade operacional</h3>
+        <p>Soluções voltadas à continuidade dos ativos, redução de paradas e maior disponibilidade dos equipamentos industriais.</p>
+      </article>
+
+      <article class="bento-card reveal">
+        <div class="card-icon red">02</div>
+        <h3>Segurança operacional</h3>
+        <p>Engenharia aplicada para elevar a segurança dos processos, dos equipamentos e das operações industriais atendidas.</p>
+      </article>
+
+      <article class="bento-card reveal">
+        <div class="card-icon">03</div>
+        <h3>Processos eficientes</h3>
+        <p>Diagnóstico, manutenção preventiva e corretiva com equipe qualificada e processos padronizados.</p>
+      </article>
+
+      <article class="bento-card wide reveal">
+        <div class="card-icon">04</div>
+        <h3>Resultados que geram valor</h3>
+        <p>Foco em performance operacional, redução de custos operacionais, aumento da vida útil dos ativos e maior eficiência produtiva.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container cta-band reveal">
+    <h2>Soluções que movimentam a sua indústria.</h2>
+    <p>Estamos à disposição para contribuir com o sucesso da sua operação e construir uma parceria sólida, com suporte técnico, manutenção especializada e fornecimento ágil.</p>
+    <a class="btn btn-primary" th:href="@{/contato}">Solicitar diagnóstico</a>
+  </div>
+</section>
+
+</div>
+</html>
