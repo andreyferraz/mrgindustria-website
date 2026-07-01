@@ -3,3 +3,10 @@ CREATE TABLE IF NOT EXISTS admin (
 	username TEXT NOT NULL UNIQUE,
 	password TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS marcas (
+    id TEXT PRIMARY KEY,
+    imagem TEXT NOT NULL,
+    titulo TEXT NOT NULL,
+    descricao TEXT NOT NULL
+);
