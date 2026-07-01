@@ -17,6 +17,7 @@ public class AdminService {
 
     private static final String PASSWORD_FIELD = "password";
     private static final String USERNAME_FIELD = "username";
+    private static final String ADMIN_NOT_FOUND = "Admin não encontrado.";
 
     private final AdminRepository adminRepository;
     private final PasswordEncoder passwordEncoder;
@@ -41,7 +42,7 @@ public class AdminService {
     public Admin update(UUID id, Admin admin) {
         ValidationUtils.validarCampoObrigatorio(id, "id");
         Admin existing = adminRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Admin não encontrado."));
+            .orElseThrow(() -> new IllegalArgumentException(ADMIN_NOT_FOUND));
 
         ValidationUtils.validarCampoStringObrigatorio(admin.getUsername(), USERNAME_FIELD);
         ValidationUtils.validarCampoStringObrigatorio(admin.getPassword(), PASSWORD_FIELD);
@@ -57,12 +58,34 @@ public class AdminService {
         return adminRepository.findById(id);
     }
 
+    public Optional<Admin> findByUsername(String username) {
+        ValidationUtils.validarCampoStringObrigatorio(username, USERNAME_FIELD);
+        return adminRepository.findByUsername(username);
+    }
+
     public Admin changePassword(UUID id, String newPassword) {
         ValidationUtils.validarCampoObrigatorio(id, "id");
         ValidationUtils.validarCampoStringObrigatorio(newPassword, PASSWORD_FIELD);
 
         Admin existing = adminRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Admin não encontrado."));
+            .orElseThrow(() -> new IllegalArgumentException(ADMIN_NOT_FOUND));
+
+        existing.setPassword(passwordEncoder.encode(newPassword));
+        existing.setNew(false);
+        return adminRepository.save(existing);
+    }
+
+    public Admin changePasswordByUsername(String username, String currentPassword, String newPassword) {
+        ValidationUtils.validarCampoStringObrigatorio(username, USERNAME_FIELD);
+        ValidationUtils.validarCampoStringObrigatorio(currentPassword, "currentPassword");
+        ValidationUtils.validarCampoStringObrigatorio(newPassword, PASSWORD_FIELD);
+
+        Admin existing = adminRepository.findByUsername(username)
+            .orElseThrow(() -> new IllegalArgumentException(ADMIN_NOT_FOUND));
+
+        if (!passwordEncoder.matches(currentPassword, existing.getPassword())) {
+            throw new IllegalArgumentException("Senha atual inválida.");
+        }
 
         existing.setPassword(passwordEncoder.encode(newPassword));
         existing.setNew(false);
