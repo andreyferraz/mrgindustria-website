@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mrgindustria.website.model.Marcas;
@@ -11,6 +12,7 @@ import com.mrgindustria.website.repository.MarcasRepository;
 import com.mrgindustria.website.utils.ValidationUtils;
 
 @Service
+@Transactional
 public class MarcasService {
 
     private final MarcasRepository marcasRepository;
