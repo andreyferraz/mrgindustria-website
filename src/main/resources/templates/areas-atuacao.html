@@ -33,49 +33,14 @@
             </div>
 
             <div class="segment-grid">
-                <div class="segment-card reveal">
-                    <strong>Indústrias petroquímicas</strong>
-                    <span>Suporte técnico especializado para operações críticas e ambientes severos.</span>
+                <div class="segment-card reveal" th:if="${#lists.isEmpty(areas)}">
+                    <strong>Nenhuma área cadastrada</strong>
+                    <span>Cadastre áreas no painel administrativo para exibir aqui.</span>
                 </div>
 
-                <div class="segment-card reveal">
-                    <strong>Fundição</strong>
-                    <span>Soluções robustas para sistemas hidráulicos e pneumáticos de alta demanda.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Extrusão</strong>
-                    <span>Manutenção e fornecimento técnico para máxima produtividade e eficiência.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Offshore</strong>
-                    <span>Atendimento técnico confiável para operações em ambientes desafiadores.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Metalurgia</strong>
-                    <span>Sistemas de lubrificação e hidráulicos para processos contínuos e seguros.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Mineração</strong>
-                    <span>Equipamentos e serviços para alta performance e redução de paradas.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Papel e celulose</strong>
-                    <span>Soluções técnicas que garantem disponibilidade e confiabilidade operacional.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Indústrias de processos</strong>
-                    <span>Atuação integrada para otimização, segurança e eficiência dos processos.</span>
-                </div>
-
-                <div class="segment-card reveal">
-                    <strong>Operações industriais em geral</strong>
-                    <span>Atendimento flexível e personalizado para diferentes demandas industriais.</span>
+                <div class="segment-card reveal" th:each="area : ${areas}">
+                    <strong th:text="${area.titulo}">Título da área</strong>
+                    <span th:text="${area.descricao}">Descrição da área</span>
                 </div>
             </div>
         </div>

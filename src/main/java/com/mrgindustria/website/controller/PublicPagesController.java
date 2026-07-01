@@ -1,13 +1,34 @@
 package com.mrgindustria.website.controller;
 
+import java.util.List;
+import java.util.stream.StreamSupport;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.mrgindustria.website.model.Areas;
+import com.mrgindustria.website.model.Marcas;
+import com.mrgindustria.website.service.AreasService;
+import com.mrgindustria.website.service.MarcasService;
 
 @Controller
 public class PublicPagesController {
 
+    private final AreasService areasService;
+    private final MarcasService marcasService;
+
+    public PublicPagesController(AreasService areasService, MarcasService marcasService) {
+        this.areasService = areasService;
+        this.marcasService = marcasService;
+    }
+
     @GetMapping("/")
-    public String home() {
+    public String home(Model model) {
+        List<Areas> areas = StreamSupport.stream(areasService.findAll().spliterator(), false).toList();
+        List<Marcas> marcas = StreamSupport.stream(marcasService.findAll().spliterator(), false).toList();
+        model.addAttribute("marcas", marcas);
+        model.addAttribute("areas", areas);
         return "index";
     }
 
@@ -17,7 +38,9 @@ public class PublicPagesController {
     }
 
     @GetMapping("/areas-atuacao")
-    public String areasAtuacao() {
+    public String areasAtuacao(Model model) {
+        List<Areas> areas = StreamSupport.stream(areasService.findAll().spliterator(), false).toList();
+        model.addAttribute("areas", areas);
         return "areas-atuacao";
     }
 

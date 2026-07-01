@@ -124,50 +124,15 @@
                     processos.</p>
             </div>
             <div class="bento-grid">
-                <article class="bento-card reveal">
-                    <div class="card-icon">01</div>
-                    <h3>Indústrias petroquímicas</h3>
-                    <p>Suporte técnico especializado para operações críticas e ambientes severos.</p>
+                <article class="bento-card reveal" th:if="${#lists.isEmpty(areas)}">
+                    <div class="card-icon">00</div>
+                    <h3>Nenhuma área cadastrada</h3>
+                    <p>Cadastre áreas no painel administrativo para exibir este conteúdo na página inicial.</p>
                 </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">02</div>
-                    <h3>Fundição</h3>
-                    <p>Soluções robustas para sistemas hidráulicos e pneumáticos de alta demanda.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">03</div>
-                    <h3>Extrusão</h3>
-                    <p>Manutenção e fornecimento técnico para máxima produtividade e eficiência.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">04</div>
-                    <h3>Offshore</h3>
-                    <p>Atendimento técnico confiável para operações em ambientes desafiadores.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">05</div>
-                    <h3>Metalurgia</h3>
-                    <p>Sistemas de lubrificação e hidráulicos para processos contínuos e seguros.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">06</div>
-                    <h3>Mineração</h3>
-                    <p>Equipamentos e serviços para alta performance e redução de paradas.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">07</div>
-                    <h3>Papel e celulose</h3>
-                    <p>Soluções técnicas que garantem disponibilidade e confiabilidade operacional.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">08</div>
-                    <h3>Indústrias de processos</h3>
-                    <p>Atuação integrada para otimização, segurança e eficiência dos processos.</p>
-                </article>
-                <article class="bento-card wide reveal">
-                    <div class="card-icon">09</div>
-                    <h3>Operações industriais em geral</h3>
-                    <p>Atendimento flexível e personalizado para diferentes demandas industriais.</p>
+                <article class="bento-card reveal" th:classappend="${areaStat.last} ? ' wide' : ''" th:each="area, areaStat : ${areas}">
+                    <div class="card-icon" th:text="${#numbers.formatInteger(areaStat.count, 2)}">01</div>
+                    <h3 th:text="${area.titulo}">Título da área</h3>
+                    <p th:text="${area.descricao}">Descrição da área</p>
                 </article>
             </div>
         </div>
@@ -217,30 +182,18 @@
                     Parker, Rexroth, Danfoss, Eaton e Festo.</p>
             </div>
             <div class="bento-grid">
-                <article class="bento-card reveal">
-                    <div class="card-icon">P</div>
-                    <h3>Parker</h3>
-                    <p>Componentes hidráulicos e pneumáticos para aplicações industriais.</p>
+                <article class="bento-card reveal" th:if="${#lists.isEmpty(marcas)}">
+                    <div class="card-icon">M</div>
+                    <h3>Nenhuma marca cadastrada</h3>
+                    <p>Cadastre marcas no painel administrativo para exibir este conteúdo na página inicial.</p>
                 </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">R</div>
-                    <h3>Rexroth</h3>
-                    <p>Soluções e componentes Bosch Rexroth para sistemas industriais.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">D</div>
-                    <h3>Danfoss</h3>
-                    <p>Componentes técnicos para desempenho, controle e eficiência operacional.</p>
-                </article>
-                <article class="bento-card reveal">
-                    <div class="card-icon">E</div>
-                    <h3>Eaton</h3>
-                    <p>Produtos e soluções para aplicações hidráulicas e industriais.</p>
-                </article>
-                <article class="bento-card wide reveal">
-                    <div class="card-icon">F</div>
-                    <h3>Festo</h3>
-                    <p>Componentes pneumáticos e soluções para automação e linhas de ar comprimido.</p>
+                <article class="bento-card reveal" th:classappend="${marcaStat.last} ? ' wide' : ''" th:each="marca, marcaStat : ${marcas}">
+                    <div class="card-icon card-icon-logo">
+                        <img th:if="${marca.imagem != null and !#strings.isEmpty(marca.imagem)}" th:src="|/uploads/${marca.imagem}|" th:alt="${marca.titulo}">
+                        <span th:if="${marca.imagem == null or #strings.isEmpty(marca.imagem)}" th:text="${#strings.substring(marca.titulo, 0, 1)}">M</span>
+                    </div>
+                    <h3 th:text="${marca.titulo}">Título da marca</h3>
+                    <p th:text="${marca.descricao}">Descrição da marca</p>
                 </article>
             </div>
         </div>

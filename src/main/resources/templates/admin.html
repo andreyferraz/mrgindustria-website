@@ -129,7 +129,7 @@
                                 </div>
                                 <form class="admin-form admin-form-grid admin-edit-form" th:action="@{'/admin/marcas/' + ${marca.id}}" method="post" enctype="multipart/form-data" th:attr="data-edit-form=|marca-${marca.id}|">
                                     <div class="admin-image-wrap" th:if="${marca.imagem}">
-                                        <img th:src="@{'/uploads/' + ${marca.imagem}}" th:alt="${marca.titulo}">
+                                        <img th:src="|/uploads/${marca.imagem}|" th:alt="${marca.titulo}">
                                     </div>
                                     <div class="field">
                                         <label for="marca-titulo-edit">Título</label>
@@ -186,7 +186,7 @@
                                 </div>
                                 <form class="admin-form admin-form-grid admin-edit-form" th:action="@{'/admin/servicos/' + ${servico.id}}" method="post" enctype="multipart/form-data" th:attr="data-edit-form=|servico-${servico.id}|">
                                     <div class="admin-image-wrap" th:if="${servico.imagem}">
-                                        <img th:src="@{'/uploads/' + ${servico.imagem}}" th:alt="${servico.titulo}">
+                                        <img th:src="|/uploads/${servico.imagem}|" th:alt="${servico.titulo}">
                                     </div>
                                     <div class="field">
                                         <label for="servico-titulo-edit">Título</label>
