@@ -71,8 +71,6 @@
                     <a href="mailto:juliocastromrg@gmail.com">juliocastromrg@gmail.com</a>
                     <a href="mailto:mbarbosamrg@gmail.com">mbarbosamrg@gmail.com</a>
                     <a th:href="@{/contato}">Abrir formulário</a>
-                    <a class="btn btn-secondary footer-login-btn" th:href="@{/login}" sec:authorize="isAnonymous()"><i class="fa-solid fa-lock" aria-hidden="true"></i> Área administrativa</a>
-                    <a class="btn btn-secondary footer-login-btn" th:href="@{/admin}" sec:authorize="isAuthenticated()">Ir para painel admin</a>
                 </div>
             </div>
             <div class="footer-location">
@@ -114,8 +112,17 @@
             </div>
             <div class="footer-bottom">
                 <span>© <span data-current-year></span> MRG Engenharia. Todos os direitos reservados.</span>
-                <span>Desenvolvido por <a href="https://www.andreyferraz.com.br" target="_blank"
-                        rel="noopener noreferrer">Andrêy Ferraz</a></span>
+                <div class="footer-bottom-meta">
+                    <a class="footer-admin-link" th:href="@{/login}" sec:authorize="isAnonymous()">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i> Área administrativa
+                    </a>
+                    <a class="footer-admin-link footer-admin-link--active" th:href="@{/admin}" sec:authorize="isAuthenticated()">
+                        <i class="fa-solid fa-sliders" aria-hidden="true"></i> Ir para painel admin
+                    </a>
+                    <span class="footer-bottom-sep" aria-hidden="true">·</span>
+                    <span>Desenvolvido por <a href="https://www.andreyferraz.com.br" target="_blank"
+                            rel="noopener noreferrer">Andrêy Ferraz</a></span>
+                </div>
             </div>
         </div>
     </footer>
