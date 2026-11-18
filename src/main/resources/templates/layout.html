@@ -74,6 +74,43 @@
                     <a class="btn btn-secondary footer-login-btn" th:href="@{/admin}" sec:authorize="isAuthenticated()">Ir para painel admin</a>
                 </div>
             </div>
+            <div class="footer-location">
+                <div class="footer-location-info">
+                    <span class="footer-location-eyebrow">Localização</span>
+                    <h3>Onde estamos</h3>
+                    <p>Visite nossa unidade ou trace sua rota diretamente pelo aplicativo de navegação de sua preferência.</p>
+                    <div class="footer-map-actions">
+                        <a class="btn footer-map-btn footer-map-btn--gmaps"
+                           href="https://maps.app.goo.gl/q6uqStauxxp3qcQB7"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Abrir no Google Maps
+                        </a>
+                        <a class="btn footer-map-btn footer-map-btn--waze"
+                           href="https://waze.com/ul?ll=-20.140075,-40.2369979&amp;navigate=yes"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                            </svg>
+                            Abrir no Waze
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-map-frame">
+                    <iframe
+                        title="Localização da MRG Engenharia no mapa"
+                        src="https://maps.google.com/maps?q=-20.140075,-40.2369979&amp;hl=pt-BR&amp;z=16&amp;output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <span>© <span data-current-year></span> MRG Engenharia. Todos os direitos reservados.</span>
                 <span>Desenvolvido por <a href="https://www.andreyferraz.com.br" target="_blank"
