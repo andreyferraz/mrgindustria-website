@@ -11,6 +11,7 @@
         content="MRG Engenharia: soluções industriais em sistemas hidráulicos, pneumáticos e lubrificação industrial, com engenharia aplicada, manutenção especializada e fornecimento técnico.">
     <title th:text="${title}">Início | MRG Engenharia</title>
     <link rel="icon" th:href="@{/img/favicon.svg}" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 
@@ -31,7 +32,7 @@
                 <a th:href="@{/servicos-realizados}">Serviços</a>
                 <a th:href="@{/contato}">Contato</a>
             </nav>
-            <a class="header-cta" th:href="@{/contato}">Solicitar proposta</a>
+            <a class="header-cta" th:href="@{/contato}"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Solicitar proposta</a>
         </div>
     </header>
 
@@ -70,7 +71,7 @@
                     <a href="mailto:juliocastromrg@gmail.com">juliocastromrg@gmail.com</a>
                     <a href="mailto:mbarbosamrg@gmail.com">mbarbosamrg@gmail.com</a>
                     <a th:href="@{/contato}">Abrir formulário</a>
-                    <a class="btn btn-secondary footer-login-btn" th:href="@{/login}" sec:authorize="isAnonymous()">Área administrativa</a>
+                    <a class="btn btn-secondary footer-login-btn" th:href="@{/login}" sec:authorize="isAnonymous()"><i class="fa-solid fa-lock" aria-hidden="true"></i> Área administrativa</a>
                     <a class="btn btn-secondary footer-login-btn" th:href="@{/admin}" sec:authorize="isAuthenticated()">Ir para painel admin</a>
                 </div>
             </div>
